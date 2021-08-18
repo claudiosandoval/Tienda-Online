@@ -28,10 +28,10 @@ if(isset($_SESSION['register'])) {
     <label for="password">Contraseña:</label>
     <input type="password" name="password" required>
 
-    <label for="rol">Rol:</label>
+    <!-- <label for="rol">Rol:</label>
     <select name="select" required>
         <option value="admin">Admin</option>
         <option value="user" selected>Usuario</option>
-    </select>
+    </select> -->
     <input type="submit" value="Registrarse">
 </form>

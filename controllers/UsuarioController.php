@@ -22,15 +22,17 @@ class UsuarioController {
             $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos']: false;
             $email = isset($_POST['email']) ? $_POST['email']: false;
             $password = isset($_POST['password']) ? $_POST['password']: false;
-            $rol = isset($_POST['select']) ? $_POST['select']: false;
+            // $rol = isset($_POST['select']) ? $_POST['select']: false;
+            // var_dump($_POST);
+            // die();
 
-            if($nombre && $apellidos && $email && $password && $rol) {
+            if($nombre && $apellidos && $email && $password) {
                 $usuario = new usuario();
                 $usuario->setNombre($nombre);
                 $usuario->setApellidos($apellidos);
                 $usuario->setEmail($email);
                 $usuario->setPassword($password);
-                $usuario->setRol($rol);
+                // $usuario->setRol($rol);
                 
                 $save = $usuario->save();
                 if($save) {

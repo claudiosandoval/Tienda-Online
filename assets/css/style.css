@@ -41,6 +41,28 @@ a:hover {
 .alert_red {
     color: red;
 }
+
+/* Tablas */
+table {
+    width: 100%;
+    border: 1px solid green;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+td {
+    border-top: 1px solid green;
+    padding: 10px;
+    border-left: 1px solid green;
+}
+
+th {
+    padding: 10px;
+    border-left: 1px solid green;
+}
+
+/* Fin Tablas */
+
 /* FIN GENERALES */
 
 /* HEADER */
@@ -218,6 +240,13 @@ button:hover,
     background: black;
     border: 1px solid gray;
     
+}
+
+.button-small {
+    width: 120px !important;
+    float: left;
+    margin-bottom: 20px !important;
+    text-align: center;
 }
 /* FIN FORMS */
 

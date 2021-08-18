@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?=base_url?>assets/css/style.css">
-    <title>Tienda Link-to</title>
+    <title>Tienda Link-to </title>
 </head>
 <body>
 <div id="container">
@@ -14,25 +14,22 @@
         <div id="logo">
             <img src="<?=base_url?>assets/img/link-to.png" alt="Link Logo">
             <a href="index.php">
-                Tienda Link-to   
+                Tienda Link-to <span style="font-size:16px; text-shadow:none; color:#b99658;">Impresiones 3d</span>
             </a>
         </div>
     </header>
     <!-- Menu -->
+    <?php $categorias = Utils::showCategorias() ?><!--  Devuelve un mysqlresult del objeto categorias -->
     <nav id="menu">
         <ul>
             <li>
                 <a href="">Inicio</a>
             </li>
+            <?php while($cat = $categorias->fetch_object()): ?>
             <li>
-                <a href="">Inicio</a>
+                <a href=""><?=$cat->nombre?></a>
             </li>
-            <li>
-                <a href="">Inicio</a>
-            </li>
-            <li>
-                <a href="">Inicio</a>
-            </li>
+            <?php endwhile; ?>
         </ul>
     </nav>
     <!-- Main Content -->
