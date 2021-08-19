@@ -2,23 +2,23 @@
 
 /* FORMATEAR CSS */
 *{
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: sans-serif, Arial, Helvetica;
+    font-family: 'Poppins', sans-serif, Arial, Helvetica;
 }
 
 body {
-    background: url(../img/bg.png);
+    background: url(../img/zelda-pattern.jpg);
 }
 
 a {
-    color: green;
-    
+    color:#337b4b;
 }
 
 /* Aplicamos pseudoclase para los enlaces ya visitados del mismo color para que no cambien */
 a:visited {
-    color: green;
+    color: #337b4b;
 }
 
 a:hover {
@@ -63,12 +63,37 @@ th {
 
 /* Fin Tablas */
 
+/* .divider {
+    background: url(../img/hr-pattern.png);
+    background-color: #337b4b;
+    height: 20px;
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: auto 40%;
+} */
+
 /* FIN GENERALES */
+
+/* ANIMACIONES */
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@keyframes fadeInOut {    
+    0%,100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+
+/* FIN ANIMACIONES */
 
 /* HEADER */
 #header {
     height: 145px;
     background: #f0f0f0;
+    /* background: url(../img/header-pattern.jpg); */
 }
 
 #logo a {
@@ -112,11 +137,13 @@ th {
     color: white;
     height: 55px;
     clear: both;
-    border-bottom: 4px solid green;
+    position: relative;
+    /* border-bottom: 4px solid #337b4b; */
+    
 }
 
 
-#menu ul{
+#menu ul{       
     list-style: none;
     text-decoration: none;
     margin: 0px auto;
@@ -127,6 +154,7 @@ th {
     line-height: 55px;
     float: left;
     border-right: 1px solid gray;
+
 }
 
 #menu a {
@@ -135,6 +163,16 @@ th {
     display: block; 
     text-decoration: none;
     padding: 0 20px 0 20px;
+    transition: all 0.3s;
+}
+
+#menu::before {
+    content: "";
+    height: 3px;
+    background: linear-gradient(to right, #000 0%, #EEC965 50%, #000 100%);
+    position: absolute;
+    left: 0;
+    width: 100%;
 }
 
 #menu a:first-child {
@@ -142,7 +180,8 @@ th {
 }
 
 #menu a:hover {
-    background: rgba(0, 128, 0, 0.5);
+    /* background: rgba(0, 128, 0, 0.5); */
+    background: rgba(0, 0, 0, 0.8)
 }
 /* FIN MENU */
 
@@ -151,6 +190,16 @@ th {
     margin: 0 auto;
     overflow: hidden;
     background: white;
+    position: relative;
+}
+
+#main-content::before {
+    content: "";
+    height: 3px;
+    background: linear-gradient(to right, #000 0%, #EEC965 50%, #000 100%);
+    position: absolute;
+    left: 0;
+    width: 100%;
 }
 
 /* ASIDE */
@@ -187,6 +236,8 @@ aside .block_aside {
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="number"],
+textarea,
 select,
 label {
     display: block;
@@ -194,10 +245,17 @@ label {
     margin: 10px 0px 0px 0px;
 }
 
+input[type="number"],
+select {
+    width: 20% !important;
+}
+
 
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="number"],
+textarea,
 select {
     border: 1px solid #c9c9c9;
     /* Inset (sombreado dentro del campo) */
@@ -212,6 +270,8 @@ select {
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
+input[type="number"]:focus,
+textarea:focus,
 select:focus {
     border: 1px solid green;
     color: black;
@@ -226,7 +286,7 @@ button,
     width: auto;
     padding: 5px;
     color: white;
-    background: rgba(0, 128, 0, 0.800);
+    background: #337b4b;
     border: 1px solid green;
     cursor: pointer;
     transition: all 0.3s;
@@ -243,7 +303,7 @@ button:hover,
 }
 
 .button-small {
-    width: 120px !important;
+    width: 150px !important;
     float: left;
     margin-bottom: 20px !important;
     text-align: center;
@@ -252,10 +312,12 @@ button:hover,
 
 #aside ul {
     margin-top: 10px;
+    margin-left: 15px;
 }
 
 #aside ul li {
-    list-style: square;
+    list-style-image: url("../img/list-icon.png");
+    /* list-style: square; */
     margin: 20px 0px 0px 20px
 }
 
@@ -267,7 +329,7 @@ button:hover,
 /* CENTRAL */
 #central {
     width: 72%;
-    min-height: 500px;
+    min-height: 700px;
     padding: 25px;
     float: right;
     border-left: 1px solid gray;
@@ -288,9 +350,20 @@ button:hover,
     width: 30%;
     text-align: center;
     float: left;
-    /* margin: 0px 0px 40px 25px; */
     margin-left: 2.5%;
     margin-bottom: 50px;
+    border-radius: 5%;
+    padding: 10px 0px 10px 0;
+    position: relative;
+    transition: all 0.3s;   
+    border: 2px solid rgba(0, 0, 0, 0);
+}
+
+.product:hover {
+    transition: all 0.3s;
+    border: 2px solid rgba(185,150,88,0.5);
+    /* box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); */
+    transform: scale(1.025)
 }
 
 .product img {
@@ -313,10 +386,29 @@ button:hover,
 /* FOOTER  */
 #footer {
     text-align: center;
-    padding: 20px 0 10px 0;
     background: black;
     color: #ccc;
-    border-top: 5px solid green;
+    position: relative;
+    /* border-top: 5px solid #337b4b; */
 }
+
+#footer p {
+    padding: 20px 0px 20px 0px !important;
+}
+#footer p {
+    margin: 0;
+}
+
+
+
+#footer::before, #footer::after {
+    content: "";
+    height: 3px;
+    background: linear-gradient(to right, #000 0%, #EEC965 50%, #000 100%);
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
 
 /* FIN FOOTER  */

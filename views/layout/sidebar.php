@@ -8,7 +8,7 @@
             <input type="email" name="email">
             <label for="password">Contraseña:</label>
             <input type="password" name="password">
-            <input type="submit" value="Enviar">
+            <input type="submit" value="Ingresar">
         </form>
         <?php else: ?>
             <h3><?="Bienvenido ".$_SESSION['identity']->nombre. " ".$_SESSION['identity']->apellidos?></h3>
@@ -16,7 +16,7 @@
             <ul>
                 <?php if(isset($_SESSION['admin'])): ?>
                     <li><a href="<?=base_url?>categoria/index">Gestionar categorias</a></li>
-                    <li><a href="">Gestionar productos</a></li>
+                    <li><a href="<?=base_url?>producto/gestion">Gestionar productos</a></li>
                     <li><a href="">Gestionar pedidos</a></li>
                 <?php endif; ?> 
                 <?php if(isset($_SESSION['identity'])): ?>
