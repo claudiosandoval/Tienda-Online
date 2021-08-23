@@ -17,9 +17,9 @@ a {
 }
 
 /* Aplicamos pseudoclase para los enlaces ya visitados del mismo color para que no cambien */
-a:visited {
+/* a:visited {
     color: #337b4b;
-}
+} */
 
 a:hover {
     color: black;
@@ -36,10 +36,14 @@ a:hover {
 
 .alert_green {
     color: green;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .alert_red {
     color: red;
+    display: block;
+    margin-bottom: 20px;
 }
 
 /* Tablas */
@@ -71,6 +75,10 @@ th {
     background-position: center;
     background-size: auto 40%;
 } */
+
+.thumb {
+    width: 200px;
+}
 
 /* FIN GENERALES */
 
@@ -124,6 +132,7 @@ th {
     height: 100px;
     position: absolute;
     top: 0;
+    left: 20px;
 }
 
 .product img {
@@ -233,6 +242,11 @@ aside .block_aside {
 }
 
 /* FORMS GENERALES */
+.form-container {
+    width: 50%;
+    margin: 0 auto;
+}
+
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -308,11 +322,20 @@ button:hover,
     margin-bottom: 20px !important;
     text-align: center;
 }
+
+.button-gestion {
+    margin-bottom: 10px;
+}
+
+.button-gestion:visited {
+    color: none;
+}
+
 /* FIN FORMS */
 
 #aside ul {
     margin-top: 10px;
-    margin-left: 15px;
+    /* margin-left: 15px; */
 }
 
 #aside ul li {
@@ -323,6 +346,10 @@ button:hover,
 
 #aside ul li a {
     text-decoration: none;
+    transition: all 0.3s;
+}
+#aside ul li a:hover {
+    margin-left: 10px;
 }
 /* FIN ASIDE */
 

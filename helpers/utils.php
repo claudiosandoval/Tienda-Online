@@ -19,6 +19,6 @@ class Utils {
         $categorias = new categoria();
         $categorias = $categorias->getCategorias();
 
-         return $categorias;
+        return $categorias;
     }
 }

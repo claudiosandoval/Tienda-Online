@@ -1,9 +1,9 @@
 <h1>Gestionar Categorias</h1>
 
 <?php if(isset($_SESSION['register']) && $_SESSION['register']=="complete"): ?>
-    <strong class="alert_green" style="display:block; margin-bottom:20px">Registro completado correctamente</strong>  
+    <strong class="alert_green">Registro completado correctamente</strong>  
 <?php elseif(isset($_SESSION['register']) && $_SESSION['register']=="failed"  ): ?>
-    <strong class="alert_red" style="display:block; margin-bottom:20px">Registro fallido, introduce bien los datos</strong>
+    <strong class="alert_red">Registro fallido, introduce bien los datos</strong>
 <?php endif; ?>
 <?php Utils::deleteSession('register'); ?>
 

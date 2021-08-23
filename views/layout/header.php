@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=base_url?>assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"><!--  bootstrap css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"><!--  bootstrap icon css -->
+    <link rel="stylesheet" href="<?=base_url?>assets/css/style.css"><!--  mi css -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet"><!--  poppins font family -->
     <title>Tienda Link-to </title>
 </head>
 <body>
@@ -13,8 +15,8 @@
     <!-- Head -->
     <header id="header">
         <div id="logo">
-            <img src="<?=base_url?>assets/img/link-to.png" alt="Link Logo">
             <a href="index.php">
+                <img src="<?=base_url?>assets/img/link-to.png" alt="Link Logo">
                 Tienda Link-to <span style="font-size:16px; text-shadow:none; color:#b99658;">Impresiones 3d</span>
             </a>
         </div>
