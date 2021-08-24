@@ -4,7 +4,12 @@ class ProductoController {
     public function index() { //funcion para probar el layout
     //echo "Controlador productos, Accion index";
 
-    //Renderizar vista
+    $producto = new Producto(); 
+
+    $productos = $producto->getRandom(6);
+    // var_dump($productos->fetch_object());
+
+    //Renderizar vista  
     require_once 'views/producto/destacados.php';   
     }
 

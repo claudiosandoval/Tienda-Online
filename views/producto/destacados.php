@@ -1,44 +1,14 @@
-<h1>Productos Destacados</h1>
+<h1>Revisa nuestros productos uwu</h1>
+<?php while($pro = $productos->fetch_object()): ?>
+<?php  ?>
 <div class="product">
-    <img src="<?=base_url?>assets/img/pikachu.png" alt="Producto">
-    <h2>Pikachu 3d</h2>
-    <p>$7000</p>
+    <?php if($pro->imagen != null): ?>
+    <img src="<?=base_url?>uploads/images/<?=$pro->imagen?>" alt="Producto">
+    <?php else: ?>
+    <img src="<?=base_url?>assets/img/no-disponible.jpg" alt="Producto">
+    <?php endif; ?>
+    <h2><?=$pro->nombre?></h2>
+    <p>$<?=$pro->precio?></p>
     <a class="button" href="">Comprar</a>
 </div>
-<div class="product">
-    <img src="<?=base_url?>assets/img/pikachu.png" alt="Producto">
-    <h2>Pikachu 3d</h2>
-    <p>$7000</p>
-    <a class="button" href="">Comprar</a>
-</div>
-<div class="product">
-    <div></div>
-    <img src="<?=base_url?>assets/img/pikachu.png" alt="Producto">
-    <h2>Pikachu 3d</h2>
-    <p>$7000</p>
-    <a class="button" href="">Comprar</a>
-</div>
-<div class="product">
-    <img src="<?=base_url?>assets/img/pikachu.png" alt="Producto">
-    <h2>Pikachu 3d</h2>
-    <p>$7000</p>
-    <a class="button" href="">Comprar</a>
-</div>
-<div class="product">
-    <img src="<?=base_url?>assets/img/pikachu.png" alt="Producto">
-    <h2>Pikachu 3d</h2>
-    <p>$7000</p>
-    <a class="button" href="">Comprar</a>
-</div>
-<div class="product">
-    <img src="<?=base_url?>assets/img/pikachu.png" alt="Producto">
-    <h2>Pikachu 3d</h2>
-    <p>$7000</p>
-    <a class="button" href="">Comprar</a>
-</div>
-<div class="product">
-    <img src="<?=base_url?>assets/img/pikachu.png" alt="Producto">
-    <h2>Pikachu 3d</h2>
-    <p>$7000</p>
-    <a class="button" href="">Comprar</a>
-</div>
+<?php endwhile; ?>

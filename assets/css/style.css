@@ -136,7 +136,8 @@ th {
 }
 
 .product img {
-    width: 100px;
+    width: 100px; 
+    height: 200px;
 }
 /* FIN HEADER */
 

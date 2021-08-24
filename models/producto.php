@@ -210,6 +210,12 @@ class Producto {
         return $producto->fetch_object();
     }
 
+    public function getRandom($limit) { //Funcion para mostrar productos en destacados de manera aleatoria
+        $productos = $this->db->query("SELECT * FROM productos ORDER BY RAND() LIMIT $limit");
+
+        return $productos;
+    }
+
     public function save() {
         $sql = "INSERT INTO productos VALUES(NULL, '{$this->getCategoria_id()}', '{$this->getNombre()}', '{$this->getDescripcion()}', '{$this->getPrecio()}', {$this->getStock()}, NULL, CURDATE(), '{$this->getImagen()}');";
         $save = $this->db->query($sql);
