@@ -204,6 +204,15 @@ class Producto {
         return $productos;
     }
 
+    public function getProductosCategoria() { //Devuelve todos los productos con una categoria en especifico
+        $sql = "SELECT p.*, c.nombre as nombre_categoria FROM productos p ". 
+                "JOIN categorias c ON p.categoria_id = c.id ".
+                "WHERE c.id = {$this->getCategoria_id()} ". 
+                "ORDER BY id DESC;";
+        $productos = $this->db->query($sql);
+        return $productos;
+    }
+
     public function getOneProduct() { //Funcion para el metodo edit , devuelve un solo producto para poder editar el mismo
         $producto = $this->db->query("SELECT p.*, c.nombre as nombre_categoria FROM productos p JOIN categorias c ON p.categoria_id = c.id WHERE p.id = {$this->getId()} ORDER BY id DESC;");
 

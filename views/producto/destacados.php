@@ -1,6 +1,5 @@
 <h1>Revisa nuestros productos uwu</h1>
 <?php while($pro = $productos->fetch_object()): ?>
-<?php  ?>
 <div class="product">
     <?php if($pro->imagen != null): ?>
     <img src="<?=base_url?>uploads/images/<?=$pro->imagen?>" alt="Producto">

@@ -1,5 +1,6 @@
 <?php 
 require_once 'models/categoria.php';
+require_once 'models/producto.php';
 
 class CategoriaController {
     public function index() {
@@ -46,6 +47,25 @@ class CategoriaController {
         // die();
 
         header("Location:".base_url."categoria/index");
+    }
+
+    public function ver() {
+
+        if(isset($_GET['id'])){
+            // var_dump($_GET['id']);
+            $id = $_GET['id'];  
+            $categoria = new categoria();
+            $categoria->setId($id);
+            $categoria = $categoria->getOneCategoria(); //Conseguir la categoria en especifico para luego utilizar la variable en la vista
+            // var_dump($categoria);
+
+            //Conseguir productos
+            $productos = new Producto();
+            $productos->setCategoria_id($id);
+            $productos = $productos->getProductosCategoria(); //Conseguir todos los productos con el id especifico de la categoria
+        }
+
+        require_once 'views/categoria/ver.php';
     }
 
 

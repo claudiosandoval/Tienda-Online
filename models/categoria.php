@@ -58,6 +58,12 @@ class categoria {
         return $categorias;
     }
 
+    public function getOneCategoria() {
+        $categoria = $this->db->query("SELECT * FROM categorias WHERE id = {$this->getId()} ORDER BY id DESC;");
+
+        return $categoria->fetch_object(); //Retornamos la unica categoria como un objeto
+    }
+
     public function save() {
         $sql = "INSERT INTO categorias VALUES(NULL, '{$this->getNombre()}');";
         $save = $this->db->query($sql);
