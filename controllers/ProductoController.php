@@ -139,4 +139,18 @@ class ProductoController {
 
     }
 
-}
+    public function ver() {
+        // var_dump($_GET);
+        if(isset($_GET['id'])) {
+            $id = $_GET['id'];
+            //cargar modelo 
+            $producto = new Producto();
+            $producto->setId($id);
+            $producto = $producto->getOneProduct();
+
+        }
+        require_once 'views/producto/ver.php';
+    }
+
+
+}//Fin clase Producto

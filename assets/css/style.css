@@ -387,6 +387,11 @@ button:hover,
     border: 2px solid rgba(0, 0, 0, 0);
 }
 
+.product h2 {
+    font-size: 24px;
+    color: #1b1f23;
+}
+
 .product:hover {
     transition: all 0.3s;
     border: 2px solid rgba(185,150,88,0.5);
@@ -396,6 +401,7 @@ button:hover,
 
 .product img {
     width: 200px;
+    height: 200px;
 }
 
 .product img, h2, p {
@@ -437,6 +443,103 @@ button:hover,
     left: 0;
     width: 100%;
 }
-
-
 /* FIN FOOTER  */
+
+/* VER PRODUCTO */
+#detail-product {
+    margin-top: 20px !important;
+    width: 80%;
+    margin: 0 0 0 15%;
+    overflow: hidden;
+}
+
+#detail-product .descripcion {
+    margin-left: 5%;
+}
+
+#detail-product img {
+    float: left;
+    width: 30%;
+}
+
+#detail-product div {
+    width: 65%;
+    float: left;
+}
+
+#detail-product h1 {
+    text-align: start !important;
+    padding: 0px 0 5px 0 !important;
+    border-bottom: 1px solid aaa !important;
+    width: 60%;
+}
+
+#detail-product p{
+    width: 60% !important;
+}
+
+#detail-product .stock {
+    color: green;
+}
+
+#detail-product .add-carrito input {
+    float: left;
+}
+
+#detail-product .add-carrito button {
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#detail-product .add-carrito .button {
+    text-align: center;
+    width: 70% !important;
+}
+
+/* FIN VER PRODUCTO */
+
+/* CARRITO */
+.detail-carrito td, th {
+    border-left: none;  
+}
+
+.detail-carrito td {
+    border-top: 1px solid rgba(0, 128, 0, 0.5);
+}
+
+.detail-carrito{
+    border: 1px solid rgba(0, 128, 0, 0.5);
+}
+
+.total-carrito table tbody td{
+    border-left: none;
+    border-top: none;
+}
+
+.total-carrito {
+    width: 30%;
+    text-align: start;
+    float: right;
+    margin-top: 20px;
+}
+
+.total-carrito .title {
+    font-size: 20px;
+    color: #337b4b;
+}
+
+.total-carrito tbody th {
+    background: #e6e6e6;
+}
+
+.total-carrito tbody td {
+    background: #fdfdfd;
+}
+
+.btn-carrito {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* FIN CARRITO */

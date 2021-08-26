@@ -15,10 +15,12 @@
     <!-- Head -->
     <header id="header">
         <div id="logo">
-            <a href="index.php">
-                <img src="<?=base_url?>assets/img/link-to.png" alt="Link Logo">
-                Tienda Link-to <span style="font-size:16px; text-shadow:none; color:#b99658;">Impresiones 3d</span>
-            </a>
+            <h1>
+                <a href="index.php">
+                    <img src="<?=base_url?>assets/img/link-to.png" alt="Link Logo">
+                    Tienda Link-to <span style="font-size:16px; text-shadow:none; color:#b99658;">Impresiones 3d</span>
+                </a>
+            </h1>
         </div>
     </header>
     <!-- Menu -->

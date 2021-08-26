@@ -1,5 +1,15 @@
 <!-- Aside -->
 <aside id="aside">
+    <div id="mi-carrito" class="block_aside">
+        <h3>Mi Carrito</h3>
+        <ul>
+            <?php $stats =  utils::statsCarrito()?>
+            <li>Productos (<?=$stats['count']?>)</li>
+            <li>Total acumulado: $<?=$stats['total']?></li>
+            <li><a href="<?=base_url?>carrito/index">Ver Carrito</a></li>
+        </ul>
+    </div>
+
     <div id="login" class="block_aside">
         <?php if(!isset($_SESSION['identity'])): ?>
         <h3>Entrar a la web</h3>
