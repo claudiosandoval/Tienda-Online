@@ -8,9 +8,17 @@ class Utils {
         }  
     }
 
-    public static function isAdmin() {
+    public static function isAdmin() { //Comprueba si el usuario es admin
         if(!isset($_SESSION['admin'])) {
             header("Location:".base_url);
+        }
+    }
+
+    public static function isIdentity() { //Comprueba si el usuario esta identificado
+        if(!isset($_SESSION['identity'])) {
+            header("Location:".base_url);
+        }else {
+            return true;
         }
     }
 

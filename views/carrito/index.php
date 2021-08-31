@@ -64,7 +64,7 @@
             </tr>
         </tbody>
     </table>
-    <button class="button btn-carrito">Finalizar compra -></button>
+    <a href="<?=base_url?>pedido/realizar" class="button btn-carrito">Finalizar compra ➔</a>
 </div>
     
 
