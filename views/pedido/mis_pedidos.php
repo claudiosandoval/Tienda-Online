@@ -1,4 +1,8 @@
-<h1>Mis Pedidos</h1>
+<?php if(isset($gestion)): ?>
+    <h1>Gestionar Pedidos</h1>
+<?php else: ?>
+    <h1>Mis Pedidos</h1>
+<?php endif; ?>
 <table class="detail-carrito">
     <tr>
         <th><strong>N° Pedido</strong></th>
@@ -6,6 +10,9 @@
         <th><strong>Fecha</strong></th>
         <th><strong>Hora</strong></th>
         <th><strong>Estado</strong></th>
+        <?php if(isset($gestion)): ?>
+            <th><strong>Acción</strong></th>
+        <?php endif; ?>
     </tr>
     <!-- productos es una variable heredada de la funcion index de Producto Controller -->
     <?php while($ped = $pedidos->fetch_object()): ?> 
@@ -15,10 +22,16 @@
         <td>$<?=$ped->coste?></td>
         <td><?=$ped->fecha?></td>
         <td><?=$ped->hora?></td>
-        <td><?=$ped->estado?></td>
+        <td><?= Utils::showStatus($ped->estado)?></td>
+        <?php if(isset($gestion)): ?>
+        <td>
+            <!-- Button trigger modal Edit-->
+            <a id="botonEditPedido" class="btn btn-outline-dark button-gestion" data-bs-toggle="modal" data-bs-target="#modalEditarPedido<?=$ped->id?>" style="margin-top:0;"><i class="bi bi-pencil-square"></i></a>
+        </td>
+        <?php endif; ?> 
     </tr>
 
-    <!-- Modal -->
+    <!-- Modal Pedido -->
     <div class="modal fade" id="modalPedido<?=$ped->id?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -44,6 +57,33 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar-->
+    <div class="modal fade" id="modalEditarPedido<?=$ped->id?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cambiar estado del pedido: <?=$ped->id?></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formEditStatus" action="<?=base_url?>pedido/estado" method="POST">
+                <input type="hidden" value="<?=$ped->id?>" name="pedido_id">
+                    <select name="estado" style="width:100%;">
+                        <option value="confirm" <?= $ped->estado == 'confirm' ? 'selected' : '' ?>>Pendiente</option>
+                        <option value="preparation" <?= $ped->estado == 'preparation' ? 'selected' : '' ?>>En preparacion</option>
+                        <option value="ready" <?= $ped->estado == 'ready' ? 'selected' : '' ?>>Preparado para enviar</option>
+                        <option value="sended" <?= $ped->estado == 'sended' ? 'selected' : '' ?>>Enviado</option>
+                    </select>
+                </form> 
+            </div>
+            <div class="modal-footer">
+                <button id="buttonSubmit" type="button" class="btn btn-warning">Actualizar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
             </div>

@@ -330,6 +330,12 @@ input[type="submit"]:hover,
     color: none;
 }
 
+/* Input cambiar estado en mis pedidos */
+
+.modal-body select {
+    width: 100% !important;
+}
+
 /* FIN FORMS */
 
 #aside ul {

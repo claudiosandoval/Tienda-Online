@@ -202,7 +202,7 @@ class pedido {
     }
 
     public function save() {
-        $sql = "INSERT INTO pedidos VALUES(NULL, {$this->getUsuario_id()}, '{$this->getProvincia()}', '{$this->getLocalidad()}', '{$this->getDireccion()}', {$this->getCoste()}, 'Confirmado', CURDATE(), CURTIME());";
+        $sql = "INSERT INTO pedidos VALUES(NULL, {$this->getUsuario_id()}, '{$this->getProvincia()}', '{$this->getLocalidad()}', '{$this->getDireccion()}', {$this->getCoste()}, 'confirm', CURDATE(), CURTIME());";
         $save = $this->db->query($sql);
 
         // echo $this->db->error;
@@ -210,6 +210,27 @@ class pedido {
 
         $result = false;
         if($save) {
+            $result = true;
+        }
+
+        return $result;
+    }
+
+    public function updateOne() { //Metodo para actualizar el estado del pedido
+        $sql = "UPDATE pedidos set estado = '{$this->getEstado()}' ";
+        $sql .= "WHERE id = {$this->getId()}";
+
+        // var_dump($sql); 
+        // die();
+
+        $update = $this->db->query($sql);
+
+        
+        // echo $this->db->error;
+        // die();
+
+        $result = false;
+        if($update) {
             $result = true;
         }
 
