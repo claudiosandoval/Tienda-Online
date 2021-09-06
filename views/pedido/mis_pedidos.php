@@ -26,7 +26,7 @@
         <?php if(isset($gestion)): ?>
         <td>
             <!-- Button trigger modal Edit-->
-            <a id="botonEditPedido" class="btn btn-outline-dark button-gestion" data-bs-toggle="modal" data-bs-target="#modalEditarPedido<?=$ped->id?>" style="margin-top:0;"><i class="bi bi-pencil-square"></i></a>
+            <a id="botonEditPedido<?=$ped->id?>" class="btn btn-outline-dark button-gestion" data-bs-toggle="modal" data-bs-target="#modalEditarPedido<?=$ped->id?>" style="margin-top:0;"><i class="bi bi-pencil-square"></i></a>
         </td>
         <?php endif; ?> 
     </tr>
@@ -45,15 +45,21 @@
                     while($producto = $pedido_producto->fetch_object()): 
                 ?>
                 <ul class="lista-pedidos">
-                    <li style="list-style-image: url('<?=base_url?>assets/img/list-icon.png')"><img src="<?=base_url?>uploads/images/<?=$producto->imagen?>" alt="Producto" width="100"> - <?=$producto->nombre?> - X<?=$producto->unidades?> - $<?=$producto->precio?></li>
+                    <li style="list-style-image: url('<?=base_url?>assets/img/list-icon.png')">
+                        <?php if($producto->imagen != null): ?>
+                            <img src="<?=base_url?>uploads/images/<?=$producto->imagen?>" alt="Producto" width="100">
+                        <?php else: ?>
+                            <img src="<?=base_url?>assets/img/no-disponible.jpg" alt="Producto" width="100">
+                        <?php endif; ?>
+                        - <?=$producto->nombre?> - X<?=$producto->unidades?> - $<?=$producto->precio?></li>
                     <hr>
                 </ul>
                 <?php endwhile;?>
                 <div class="text-center">
                     <p>DIRECCIÓN DE ENVÍO</p>
-                    <p><?=$ped->direccion?></p>
-                    <p><?=$ped->localidad?></p>
-                    <p><?=$ped->provincia?></p>
+                    <p><strong>Dirección: </strong><?=$ped->direccion?></p>
+                    <p><strong>Comuna: </strong><?=$ped->localidad?></p>
+                    <p><strong>Provincia: </strong><?=$ped->provincia?></p>
                 </div>
             </div>
             <div class="modal-footer">
@@ -72,7 +78,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="formEditStatus" action="<?=base_url?>pedido/estado" method="POST">
+                <form id="formEditStatus<?=$ped->id?>" action="<?=base_url?>pedido/estado" method="POST">
                 <input type="hidden" value="<?=$ped->id?>" name="pedido_id">
                     <select name="estado" style="width:100%;">
                         <option value="confirm" <?= $ped->estado == 'confirm' ? 'selected' : '' ?>>Pendiente</option>
@@ -83,7 +89,7 @@
                 </form> 
             </div>
             <div class="modal-footer">
-                <button id="buttonSubmit" type="button" class="btn btn-warning">Actualizar</button>
+                <button id="buttonSubmit<?=$ped->id?>" type="button" class="btn btn-warning btn-actualizar">Actualizar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
             </div>

@@ -1,6 +1,6 @@
 <?php if(!isset($_SESSION['identity'])): ?>
     <h1>Identificate</h1>
-    <p>Necesitas estar logeado para realizar pedidos dentro de la web</p>
+    <p class="text-center">Necesitas estar logeado para realizar pedidos dentro de la web</p>
 <?php else: ?>
     <h1>Realizar pedido</h1>
     <a href="<?=base_url?>carrito/index">Carrito</a><span> > Pedido</span>  

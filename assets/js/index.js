@@ -1,16 +1,42 @@
 $(document).ready(function() {
     //console.log("Hola Mundo");
-
-    var botonEdit = document.getElementById("botonEditPedido");
-    //console.log(botonEdit);
-
-    botonEdit.addEventListener("click", function() {
-
-        var buttonSubmit = document.getElementById("buttonSubmit");
-        //console.log(buttonSubmit);
-
-        buttonSubmit.addEventListener("click", function() {
-            var formEditar = document.getElementById("formEditStatus").submit();
-        });
-    });
 });
+
+(function () {
+    //alert("Hola Mundo");  
+    // var botonEdit = document.getElementById("botonEditPedido");
+    // console.log(botonEdit);
+
+    // if(botonEdit)
+    // {
+    //     botonEdit.addEventListener("click", function() {
+            
+    //         var buttonSubmit = document.querySelector(".btn-actualizar");
+    //         console.log(buttonSubmit);
+            
+    //         buttonSubmit.addEventListener("click", function() {
+    //             document.getElementById("formEditStatus").submit();
+    //         });
+    //     });
+    // }
+
+    var botonEdit = document.querySelectorAll(".button-gestion");
+    if(botonEdit)
+    {
+        for(var i=0;i<botonEdit.length;i++) {
+            botonEdit[i].addEventListener("click", function()
+            {
+                var id = this.id;
+                // console.log(id);
+
+                var buttonSubmit = document.getElementById("buttonSubmit" + id.substr(-2,2));
+
+                buttonSubmit.addEventListener("click", (e) => {
+                    // console.log(buttonSubmit);
+                    document.getElementById("formEditStatus" + id.substr(-2,2)).submit();
+                });
+            }); 
+        }
+    }
+
+})();

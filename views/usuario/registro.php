@@ -15,23 +15,25 @@ if(isset($_SESSION['register'])) {
 ?> -->
 
 <!-- index.php?controller=usuario&action=save (esta action ya no funciona debido a que implementamos rutas amigables con htaccess)-->
-<form action="<?=base_url?>usuario/save" method="POST">
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" required>
-
-    <label for="apellidos">Apellidos:</label>
-    <input type="text" name="apellidos" required>
-
-    <label for="email">Email:</label>
-    <input type="email" name="email" required>
- 
-    <label for="password">Contraseña:</label>
-    <input type="password" name="password" required>
-
-    <!-- <label for="rol">Rol:</label>
-    <select name="select" required>
-        <option value="admin">Admin</option>
-        <option value="user" selected>Usuario</option>
-    </select> -->
-    <input type="submit" value="Registrarse">
-</form>
+<div class="form-container">
+    <form action="<?=base_url?>usuario/save" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required>
+    
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" name="apellidos" required>
+    
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+    
+        <label for="password">Contraseña:</label>
+        <input type="password" name="password" required>
+    
+        <!-- <label for="rol">Rol:</label>
+        <select name="select" required>
+            <option value="admin">Admin</option>
+            <option value="user" selected>Usuario</option>
+        </select> -->
+        <input type="submit" value="Registrarse">
+    </form>
+</div>

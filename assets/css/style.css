@@ -547,4 +547,14 @@ input[type="submit"]:hover,
     text-align: center;
 }
 
+.btn-vaciar-carrito {
+    width: 20%;
+}
+
+.unidades-carrito a {
+    font-size: 18px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 /* FIN CARRITO */
