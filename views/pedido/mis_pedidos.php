@@ -55,12 +55,22 @@
                     <hr>
                 </ul>
                 <?php endwhile;?>
-                <div class="text-center">
-                    <p>DIRECCIÓN DE ENVÍO</p>
-                    <p><strong>Dirección: </strong><?=$ped->direccion?></p>
-                    <p><strong>Comuna: </strong><?=$ped->localidad?></p>
-                    <p><strong>Provincia: </strong><?=$ped->provincia?></p>
-                </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <?php 
+                                $datos_usuario = $pedido->getDatosUsuario($ped->id);
+                             ?>
+                            <p>DATOS DEL CLIENTE:</p>
+                            <p><strong>Nombre: </strong><?=$datos_usuario->nombre?></p>
+                            <p><strong>Email: </strong><?=$datos_usuario->email?></p>
+                        </div>
+                            <div class="col-lg-6">
+                                <p>DIRECCIÓN DE ENVÍO:</p>
+                                <p><strong>Dirección: </strong><?=$ped->direccion?></p>
+                                <p><strong>Comuna: </strong><?=$ped->localidad?></p>
+                                <p><strong>Provincia: </strong><?=$ped->provincia?></p>
+                            </div>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

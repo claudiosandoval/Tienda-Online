@@ -275,6 +275,18 @@ class pedido {
         $productos = $this->db->query($sql);     
         return $productos;
     }
+
+    public function getDatosUsuario($id) {
+        $sql = "SELECT CONCAT(u.nombre,' ', u.apellidos) as nombre, u.email FROM productos pr 
+                INNER JOIN lineas_pedidos lp ON pr.id = lp.producto_id
+                INNER JOIN pedidos p ON lp.pedido_id = p.id
+                INNER JOIN usuarios u ON p.usuario_id = u.id
+                WHERE lp.pedido_id = {$id}
+                LIMIT 1;";
+
+        $datos_usuario = $this->db->query($sql);     
+        return $datos_usuario->fetch_object();
+    }
     
 
     public function save_linea() { //Devuelve el id del pedido
