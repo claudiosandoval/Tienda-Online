@@ -4,7 +4,7 @@
     <h1>Mis Pedidos</h1>
 <?php endif; ?>
 <table class="detail-carrito">
-    <tr>
+    <tr> 
         <th><strong>N° Pedido</strong></th>
         <th><strong>Total</strong></th>
         <th><strong>Fecha</strong></th>
@@ -16,7 +16,6 @@
     </tr>
     <!-- productos es una variable heredada de la funcion index de Producto Controller -->
     <?php while($ped = $pedidos->fetch_object()): ?> 
-    
     <tr>
         <td><a type="button" class="" data-bs-toggle="modal" data-bs-target="#modalPedido<?=$ped->id?>"><?=$ped->id?></a></td>
         <td>$<?=$ped->coste?></td>

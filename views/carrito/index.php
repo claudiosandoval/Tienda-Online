@@ -27,7 +27,17 @@
             <td class="unidades-carrito">
                 <a href="<?=base_url?>carrito/minusButton&index=<?=$index?>"><i class="bi bi-dash-square-fill"></i></a>
                 <?=$elemento['unidades']?>
-                <a href="<?=base_url?>carrito/addButton&index=<?=$index?>"><i class="bi bi-plus-square-fill"></i></a>
+                <?php 
+                    $producto = new Producto(); 
+                    $id_producto = $_SESSION['carrito'][$index]['producto']->id;
+                    $producto->setId($id_producto);
+                    $producto = $producto->getOneProduct();
+                ?>
+                <?php if($elemento['unidades'] >= $producto->stock): ?>
+                    <a href="<?=base_url?>carrito/addButton&index=<?=$index?>" style="display:none;"><i class="bi bi-plus-square-fill"></i></a>
+                <?php else: ?>
+                    <a href="<?=base_url?>carrito/addButton&index=<?=$index?>"><i class="bi bi-plus-square-fill"></i></a>
+                <?php endif; ?>
             </td>
             <td>$<?=$elemento['precio'] * $elemento['unidades']?></td>
             <td>

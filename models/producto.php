@@ -204,6 +204,14 @@ class Producto {
         return $productos;
     }
 
+    public function getProductosById() {
+        $productos = $this->db->query("SELECT * FROM productos 
+                                        WHERE id = {$this->getId()}
+                                        ORDER BY id DESC;");
+
+        return $productos;
+    }
+
     public function getProductosCategoria() { //Devuelve todos los productos con una categoria en especifico
         $sql = "SELECT p.*, c.nombre as nombre_categoria FROM productos p ". 
                 "JOIN categorias c ON p.categoria_id = c.id ".
@@ -276,6 +284,20 @@ class Producto {
 
         $result = false;
         if($edit) {
+            $result = true;
+        }
+
+        return $result;
+    }
+
+    public function updateStock() {
+        $sql = "UPDATE productos SET stock = {$this->getStock()}
+                WHERE id = {$this->getId()};";
+
+        $update = $this->db->query($sql);
+
+        $result = false;
+        if($update) {
             $result = true;
         }
 

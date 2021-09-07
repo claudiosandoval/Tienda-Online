@@ -1,6 +1,7 @@
 <?php 
 require_once 'models/pedido.php';
 require_once 'models/lineaPedido.php';
+require_once 'models/producto.php';
 
 class PedidoController {
     public function realizar() {
@@ -52,6 +53,21 @@ class PedidoController {
                     $linea_pedido->setUnidades($value['unidades']);
                     $linea_pedido->setProducto_id($value['producto']->id);
                     $save_linea = $linea_pedido->save();  
+
+                    //Actualizar Stock del producto que ya fue comprado
+
+                    $producto = new Producto();
+                    $producto->setId($value['producto']->id);
+                    $productos = $producto->getProductosById();     //Retorna todos los pedidos donde el id coincida
+                    
+                    while($pro = $productos->fetch_object()) {
+                        //Recogemos el id de la session actual del carrito y lo seteamos al objeto
+                        //Restamos el stock al stock real del producto con el de la sesion del carrito a comprar
+                        $unidades_final = $pro->stock - $value['unidades'];
+                        $producto->setId($pro->id); 
+                        $producto->setStock($unidades_final);
+                        $producto->updateStock();      
+                    }
                 }
 
 
@@ -84,7 +100,6 @@ class PedidoController {
 
             $pedido_productos = new pedido();
             $productos = $pedido_productos->getProductosByPedidos($pedido->id); //Contiene el resultset de la base de datos con todos los productos correspondientes a este pedido
-
         }
 
         require_once 'views/pedido/confirmado.php';
