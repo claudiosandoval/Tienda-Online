@@ -73,6 +73,7 @@ class PedidoController {
 
                 if($save && $save_linea) {
                     $_SESSION['pedido'] = "complete";
+                    Utils::deleteSession('carrito');
                     // var_dump($_SESSION['pedido']);
                 }else {
                     // var_dump($_SESSION['pedido']);

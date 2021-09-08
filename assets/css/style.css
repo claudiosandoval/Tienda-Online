@@ -330,6 +330,10 @@ input[type="submit"]:hover,
     color: none;
 }
 
+.button-disabled {
+    background-color: #337b4b7c;
+}
+
 /* Input cambiar estado en mis pedidos */
 
 .modal-body select {
