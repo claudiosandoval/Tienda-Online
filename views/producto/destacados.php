@@ -1,8 +1,5 @@
 <h1>Revisa nuestros productos uwu</h1>
 <?php while($pro = $productos->fetch_object()): ?>
-
-
-
 <div class="product">
     <a href="<?=base_url?>producto/ver&id=<?=$pro->id?>">
         <?php if($pro->imagen != null): ?>
@@ -12,7 +9,7 @@
         <?php endif; ?>
     </a>
     <h2><?=$pro->nombre?></h2>
-    <p>$<?=$pro->precio?></p>
+    <p>$<?=ROUND($pro->precio,0)?></p>
     <?php if($pro->stock == 0): ?> 
     <p class="alert-danger" style="width:50%; margin: 0 auto; margin-top: 15px">No disponible</p>
     <?php else: ?>

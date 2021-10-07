@@ -392,7 +392,8 @@ input[type="submit"]:hover,
     padding: 10px 0px 10px 0;
     position: relative;
     transition: all 0.3s;   
-    border: 2px solid rgba(0, 0, 0, 0);
+    border: 2px solid rgba(0, 0, 0, 0); 
+    height: 350px;
 }
 
 .product h2 {

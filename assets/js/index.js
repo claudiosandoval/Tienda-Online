@@ -24,7 +24,7 @@ $(document).ready(function() {
     if(botonEdit)
     {
         for(var i=0;i<botonEdit.length;i++) {
-            botonEdit[i].addEventListener("click", function()
+            botonEdit[i].addEventListener("click", function() //Capturar el evento click del modal para actualizar el pedido en gestionar pedidos
             {
                 var id = this.id;
                 // console.log(id);
