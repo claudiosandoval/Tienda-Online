@@ -563,3 +563,19 @@ input[type="submit"]:hover,
 }
 
 /* FIN CARRITO */
+
+/* QUIEBRE DISPOSITIVOS MOVILES */
+
+@media screen and (max-width: 1200px) {
+    #container {
+            width: 100%;
+    }
+
+    #header, #menu, #main-content, #footer {
+        min-width: 1000px;
+    }
+
+    .product .button {
+        width: 50%;
+    }
+}

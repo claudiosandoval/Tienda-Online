@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"><!--  bootstrap icon css -->
     <link rel="stylesheet" href="<?=base_url?>assets/css/style.css"><!--  mi css -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet"><!--  poppins font family -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>Tienda Link-to </title>
 </head>
 <body>

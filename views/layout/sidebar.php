@@ -17,7 +17,7 @@
             <strong class="alert_red"><?= $_SESSION['error_login']?></strong>
         <?php endif; ?>
         <?php Utils::deleteSession('error_login'); ?> 
-        <form action="<?=base_url?>/usuario/login" method="POST">
+        <form action="<?=base_url?>usuario/login" method="POST">
             <label for="email">Email:</label>
             <input type="email" name="email">
             <label for="password">Contraseña:</label>

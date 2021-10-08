@@ -22,6 +22,7 @@ function show_error() {
 
 if (isset($_GET['controller'])) { //comprobamos si el controlador que llega por la url es valido de otro modo cortamos la ejecucion
     $nombre_controlador = $_GET['controller'].'Controller';
+    //var_dump(ucwords($nombre_controlador));
 }elseif(!isset($_GET['controller']) && !isset($_GET['action'])) {
     $nombre_controlador = controller_default;
 } 
